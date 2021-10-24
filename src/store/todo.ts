@@ -11,16 +11,16 @@ class Todo {
         makeAutoObservable(this)
     }
 
-    addTodo() {
-
+    addTodo(todo: any) {
+        this.todos.push(todo)
     }
 
-    removeTodo() {
-
+    removeTodo(id: number) {
+        this.todos = this.todos.filter(todo => todo.id !== id)
     }
 
-    completeTodo() {
-
+    completeTodo(todo: any) {
+        todo.completed = true
     }
 }
 
