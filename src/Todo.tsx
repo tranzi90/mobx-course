@@ -1,14 +1,14 @@
 import {observer} from "mobx-react-lite";
-import todo from "./store/todo";
+import toDo from "./store/todo";
 
 const Todo = observer(() => {
     return (
         <div>
-            {todo.todos.map(todo =>
-                <div>
-                    <input type="checkbox"/>
+            {toDo.todos.map(todo =>
+                <div key={todo.id}>
+                    <input type="checkbox" checked={todo.completed} onChange={() => toDo.completeTodo(todo.id)}/>
                     {todo.title}
-                    <button>X</button>
+                    <button onClick={() => toDo.removeTodo(todo.id)}>X</button>
                 </div>
             )}
         </div>

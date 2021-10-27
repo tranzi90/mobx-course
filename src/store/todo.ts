@@ -19,8 +19,9 @@ class Todo {
         this.todos = this.todos.filter(todo => todo.id !== id)
     }
 
-    completeTodo(todo: any) {
-        todo.completed = true
+    completeTodo(id: number) {
+        const currentTodo = this.todos.filter(todo => todo.id === id)[0]
+        currentTodo.completed = !currentTodo.completed
     }
 }
 
